@@ -14,8 +14,7 @@ export function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [errores, setErrores] = useState<Record<string, string>>({})
-  const [mostrarMensaje, setMostrarMensaje] = useState(true)
-
+  const [mostrarMensaje, setMostrarMensaje] = useState(!!mensaje)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -48,7 +47,7 @@ export function LoginPage() {
       <Container className="d-flex justify-content-center align-items-center auth-container">
         <ToastContainer position="top-center" className="p-3">
           <Toast 
-            show={mensaje && mostrarMensaje} 
+            show={!!mensaje && mostrarMensaje} 
             onClose={() => setMostrarMensaje(false)}
             delay={3000} 
             autohide
